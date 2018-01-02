@@ -24,8 +24,6 @@ public class problem4 {
 
         }
 
-
-
         reversed[4] = numberstring.charAt(0);
         System.out.println(reversed[4]);
         reversed[3] = numberstring.charAt(1);

@@ -3,37 +3,37 @@ public class problem2 {
 
     public static void main(String[] args){
 
-        System.out.println(run(0, 0));
+        int max = 4000000;
 
+        int topvalue = getTopValue(max);
+        System.out.println(topvalue);
 
-    }
+        int total = 0;
 
-    static int run(int iter, int total){
+        for(int i = 0; i < topvalue; i++){
 
-        if(even(iter) && under4mil(iter)){
-            total += fib_generator(iter);
-            run(iter + 1, total);
+            int currentvalue = fib_generator(i);
+            //System.out.println(currentvalue);
+
+            if(currentvalue % 2 == 0){
+                //System.out.println("Even: " + currentvalue);
+                total += currentvalue;
+            }
+
         }
 
-        else if(!even(iter)){
-            run(iter + 1, total);
-        }
-
-        else if(!under4mil(iter)){
-            return total;
-        }
-        return total;
+        System.out.println(total);
     }
 
-    static boolean even(int n){
+    static int getTopValue(int value){
 
-        return fib_generator(n) % 2 == 0;
+        int n = -1;
 
-    }
+        while (fib_generator(n) <= value){
+            n++;
+        }
 
-    static boolean under4mil(int n){
-
-        return fib_generator(n) < 4000000;
+        return n;
 
     }
 

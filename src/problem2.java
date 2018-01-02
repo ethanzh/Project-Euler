@@ -3,20 +3,37 @@ public class problem2 {
 
     public static void main(String[] args){
 
-        int iter = 0;
-        int total = 0;
+        System.out.println(run(0, 0));
 
-        while (true){
 
-            if(fib_generator(iter) < 4000000 && fib_generator(iter) % 2 == 0){
-                total += fib_generator(iter);
-            } else if(fib_generator(iter) >= 4000000){
-                break;
-            }
+    }
 
+    static int run(int iter, int total){
+
+        if(even(iter) && under4mil(iter)){
+            total += fib_generator(iter);
+            run(iter + 1, total);
         }
 
-        System.out.println(total);
+        else if(!even(iter)){
+            run(iter + 1, total);
+        }
+
+        else if(!under4mil(iter)){
+            return total;
+        }
+        return total;
+    }
+
+    static boolean even(int n){
+
+        return fib_generator(n) % 2 == 0;
+
+    }
+
+    static boolean under4mil(int n){
+
+        return fib_generator(n) < 4000000;
 
     }
 

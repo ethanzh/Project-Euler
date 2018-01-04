@@ -6,9 +6,31 @@ public class problem4 {
 
     public static void main(String[] args){
 
+        findLargest();
 
 
 
+    }
+
+
+    static int findLargest(){
+
+        int highestSoFar = 0;
+
+        for(int i = 100; i <= 999; i++){
+
+            for(int j = 100; j <= 999; j++){
+
+                if(((i * j) > highestSoFar) && palindrome(i * j)){
+                    highestSoFar = (i * j);
+                }
+
+            }
+        }
+
+        System.out.println(highestSoFar);
+
+        return 0;
     }
 
 
